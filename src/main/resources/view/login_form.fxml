@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.LoginFormController">
+   <children>
+      <Label graphicTextGap="5.0" layoutX="317.0" layoutY="45.0" style="-fx-font-weight: 900; -fx-letter-spacing: 10px;" styleClass="spaced-label" stylesheets="@../../../../../../Downloads/Animal-Clinic-LayeredArchilecture/src/main/resources/sheets/space.css" text="W E L C O M E   T O" textFill="#f4f4f5">
+         <font>
+            <Font size="54.0" />
+         </font>
+      </Label>
+      <Label layoutX="304.0" layoutY="110.0" styleClass="spaced-label" stylesheets="@../../../../../../Downloads/Animal-Clinic-LayeredArchilecture/src/main/resources/sheets/space.css" text="L I B R A R Y   M A N A G E M E N T " textFill="#fcf8f8">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="133.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0">
+         <image>
+            <Image url="@../../../../../../Downloads/pexels-engin-akyurt-2952871.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
