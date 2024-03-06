@@ -12,6 +12,7 @@ import java.util.List;
 
 public class BranchRepositoryImpl implements BranchRepository {
 
+
     @Override
     public List<Branch> getAll() throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
@@ -19,19 +20,16 @@ public class BranchRepositoryImpl implements BranchRepository {
         List<Branch> list = session.createNativeQuery("SELECT * FROM branch", Branch.class).list();
         transaction.commit();
         session.close();
-        return list;
-    }
+        return list;    }
 
     @Override
     public boolean add(Branch entity) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         session.save(entity);
-        System.out.println(entity);
         transaction.commit();
         session.close();
         return true;
-
     }
 
     @Override

@@ -1,39 +1,38 @@
 package Ijse.lk.dto;
 
 public class BranchDto {
-    private int branchId;
-    private String name;
+    private long branch_id;
+    private String branch_name;
 
     public BranchDto() {
     }
 
-    public BranchDto(int branchId, String name) {
-        this.branchId = branchId;
-        this.name = name;
+    public long getBranch_id() {
+        return branch_id;
     }
 
-    public int getBranchId() {
-        return branchId;
+    public void setBranch_id(long branch_id) {
+        this.branch_id = branch_id;
     }
 
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
+    public String getBranch_name() {
+        return branch_name;
     }
 
-    public String getName() {
-        return name;
+    public void setBranch_name(String branch_name) {
+        this.branch_name = branch_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public BranchDto(long branch_id, String branch_name) {
+        this.branch_id = branch_id;
+        this.branch_name = branch_name;
     }
 
     @Override
     public String toString() {
         return "BranchDto{" +
-                "branchId=" + branchId +
-                ", name='" + name + '\'' +
+                "branch_id=" + branch_id +
+                ", branch_name='" + branch_name + '\'' +
                 '}';
     }
-
 }

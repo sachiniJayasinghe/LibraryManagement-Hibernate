@@ -11,41 +11,41 @@ import javax.persistence.Table;
 public class Branch {
     @Id
     @Column(name = "branch_id")
-    private int branchId;
+    private long branch_id;
 
 
     @Column(name = "branch_name")
-    private String name;
+    private String branch_name;
 
     public Branch() {
     }
 
-
-
-    public Branch(int branchId, String name) {
+    public Branch(long branch_id, String branch_name) {
+        this.branch_id = branch_id;
+        this.branch_name = branch_name;
     }
 
-    public int getBranchId() {
-        return branchId;
+    public long getBranch_id() {
+        return branch_id;
     }
 
-    public void setBranchId(int branchId) {
-        this.branchId = branchId;
+    public void setBranch_id(long branch_id) {
+        this.branch_id = branch_id;
     }
 
-    public String getName() {
-        return name;
+    public String getBranch_name() {
+        return branch_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBranch_name(String branch_name) {
+        this.branch_name = branch_name;
     }
 
     @Override
     public String toString() {
         return "Branch{" +
-                "branchId=" + branchId +
-                ", name='" + name + '\'' +
+                "branch_id=" + branch_id +
+                ", branch_name='" + branch_name + '\'' +
                 '}';
     }
 }
