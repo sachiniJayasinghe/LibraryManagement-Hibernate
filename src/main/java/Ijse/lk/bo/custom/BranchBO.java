@@ -12,5 +12,5 @@ public interface BranchBO extends SuperBO {
 
     public boolean updateBranch(BranchDto dto)  throws Exception  ;
 
-    public  boolean deleteBranch(long branch_id) throws Exception ;
+    public  boolean deleteBranch(String branch_id) throws Exception ;
 }

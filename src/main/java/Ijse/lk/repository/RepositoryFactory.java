@@ -1,9 +1,7 @@
 package Ijse.lk.repository;
 
 import Ijse.lk.bo.custom.impl.UserBOImpl;
-import Ijse.lk.repository.custom.impl.BookRepositoryImpl;
-import Ijse.lk.repository.custom.impl.BranchRepositoryImpl;
-import Ijse.lk.repository.custom.impl.UserRepositoryImpl;
+import Ijse.lk.repository.custom.impl.*;
 
 public class RepositoryFactory {
     private static RepositoryFactory daoFactory;
@@ -16,7 +14,7 @@ public class RepositoryFactory {
     }
 
     public enum DAOTypes {
-        USER,BOOK,Branch
+        USER,BOOK,Branch,Admin,Borrowing
     }
 
     public SuperDAO getDAO(DAOTypes types){
@@ -27,6 +25,10 @@ public class RepositoryFactory {
                 return new BookRepositoryImpl();
             case Branch:
                 return new BranchRepositoryImpl();
+            case Admin:
+                return new AdminRepositoryImpl();
+            case Borrowing:
+                return new BorrowingRepositoryImpl();
             default:
                 return null;
         }

@@ -7,15 +7,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" styleClass="mainPaneBackground" stylesheets="@../sheets/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BranchFormController">
+<AnchorPane prefHeight="803.0" prefWidth="884.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BranchFormController">
     <children>
-        <AnchorPane fx:id="subsubPane" layoutX="50.0" layoutY="40.0" prefHeight="614.0" prefWidth="800.0" styleClass="subPaneBackground" stylesheets="@../sheets/space.css">
+      <ImageView fitHeight="817.0" fitWidth="886.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/hero.jpg" />
+         </image>
+      </ImageView>
+        <AnchorPane fx:id="mainSubPane" layoutX="44.0" layoutY="40.0" prefHeight="614.0" prefWidth="800.0" stylesheets="@../styles/main_form.css">
             <children>
-                <TextField fx:id="txtBranchName" layoutX="273.0" layoutY="183.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../sheets/space.css" />
+                <TextField fx:id="txtBranchName" layoutX="273.0" layoutY="159.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
                 <Label layoutX="310.0" layoutY="18.0" prefHeight="43.0" prefWidth="353.0" text="Branch Manage" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -28,18 +35,18 @@
                         </DropShadow>
                     </effect>
                 </Label>
-                <Label fx:id="userId" layoutX="281.0" layoutY="83.0" prefHeight="32.0" prefWidth="161.0" text="Branch Id :" textFill="WHITE">
+                <Label fx:id="userId" layoutX="281.0" layoutY="68.0" prefHeight="32.0" prefWidth="161.0" text="Branch Id :" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold Italic" size="15.0" />
                     </font>
                 </Label>
-                <Label fx:id="userEmail" layoutX="283.0" layoutY="159.0" prefHeight="32.0" prefWidth="192.0" text="Branch Name :" textFill="WHITE">
+                <Label fx:id="userEmail" layoutX="283.0" layoutY="132.0" prefHeight="32.0" prefWidth="192.0" text="Branch Name :" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold Italic" size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtBranchId" layoutX="273.0" layoutY="110.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../sheets/space.css" />
-                <JFXButton fx:id="btnBack" layoutX="713.0" layoutY="566.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../sheets/space.css" text="Back">
+                <TextField fx:id="txtBranchId" layoutX="273.0" layoutY="95.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+                <JFXButton fx:id="btnBack" layoutX="713.0" layoutY="566.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Back">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -47,7 +54,7 @@
                         <Font size="12.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="645.0" layoutY="258.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../sheets/space.css" text="Clear" textFill="WHITE">
+                <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="645.0" layoutY="280.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Clear" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -55,7 +62,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="577.0" layoutY="259.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../sheets/space.css" text="Update" textFill="WHITE">
+                <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="577.0" layoutY="282.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Update" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -63,7 +70,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="509.0" layoutY="257.0" onAction="#btnDeletebOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../sheets/space.css" text="Delete" textFill="WHITE">
+                <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="509.0" layoutY="281.0" onAction="#btnDeletebOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Delete" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -71,7 +78,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="433.0" layoutY="255.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../sheets/space.css" text="Save" textFill="WHITE">
+                <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="433.0" layoutY="280.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Save" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -79,12 +86,19 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <TableView fx:id="tblBranch" layoutX="277.0" layoutY="328.0" prefHeight="217.0" prefWidth="328.0">
+                <TableView fx:id="tblBranch" layoutX="157.0" layoutY="328.0" prefHeight="217.0" prefWidth="485.0">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="150.0" text="Id" />
-                        <TableColumn fx:id="colName" prefWidth="177.0" text="Name" />
+                        <TableColumn fx:id="colName" prefWidth="155.0" text="Name" />
+                  <TableColumn fx:id="colAdminId" prefWidth="179.0" text="Admin Id" />
                     </columns>
                 </TableView>
+            <Label fx:id="userEmail1" layoutX="277.0" layoutY="195.0" prefHeight="32.0" prefWidth="192.0" text="Admin Id :" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAdminId" layoutX="273.0" layoutY="221.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
             </children>
         </AnchorPane>
     </children>

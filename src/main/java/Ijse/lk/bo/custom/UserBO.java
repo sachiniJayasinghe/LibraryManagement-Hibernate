@@ -11,6 +11,6 @@ public interface UserBO extends SuperBO {
 
     public boolean updateUser(userDto dto)  throws Exception  ;
 
-    public  boolean deleteUser(long user_id) throws Exception ;
+    public  boolean deleteUser(String user_id) throws Exception ;
 
 }

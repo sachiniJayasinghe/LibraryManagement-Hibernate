@@ -1,0 +1,8 @@
+#mainSubPane{
+    -fx-background-color: rgba(0, 229, 255, 0.3);
+    -fx-border-color: #87CEEB;
+    -fx-border-radius: 35;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    -fx-background-radius: 35;
+}

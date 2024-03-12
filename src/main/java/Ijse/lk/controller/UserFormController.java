@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class UserFormController {
     @FXML
@@ -47,6 +48,9 @@ public class UserFormController {
 
     @FXML
     private TableView<userDto> tblUser;
+    @FXML
+    private TextField txtAdminId;
+
 
     @FXML
     private TextField txtEmail;
@@ -67,6 +71,8 @@ public class UserFormController {
         tblUser.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblUser.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("email"));
         tblUser.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("password"));
+        tblUser.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("admin_id"));
+
 
         loadAllUser();
     }
@@ -79,23 +85,74 @@ public class UserFormController {
     }
     @FXML
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        long user_id = Long.parseLong(txtId.getText());
-        String user_name = txtName.getText();
-        String user_email=txtEmail.getText();
-        String user_password=txtPassword.getText();
-        try {
-            userBO.addUser(new userDto(user_id,user_name,user_email,user_password));
-            loadAllUser();
-            new Alert(Alert.AlertType.CONFIRMATION,"User Added Successful !", ButtonType.OK).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "User Added Not Successful!", ButtonType.OK).show();
+        boolean isValidate = validatedUser();
+        if (isValidate) {
+            String user_id = txtId.getText();
+            String user_name = txtName.getText();
+            String user_email = txtEmail.getText();
+            String user_password = txtPassword.getText();
+            String admin_id = txtAdminId.getText();
+
+            try {
+                userBO.addUser(new userDto(user_id, user_name, user_email, user_password, admin_id));
+                loadAllUser();
+                new Alert(Alert.AlertType.CONFIRMATION, "User Added Successful !", ButtonType.OK).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, "User Added Not Successful!", ButtonType.OK).show();
+            }
         }
     }
+
+    private boolean validatedUser() {
+        int num=0;
+        String id = txtId.getText();
+        boolean isCustomerIdValidated = Pattern.matches("[U][0-9]{3,}", id);
+        if (!isCustomerIdValidated) {
+          new Alert(Alert.AlertType.ERROR, "INVALID Id").show();
+            num =1;
+        }
+
+        String name = txtName.getText();
+        boolean isCustomerNameValidated = Pattern.matches("[A-Za-z]{3,}", name);
+        if (!isCustomerNameValidated) {
+              new Alert(Alert.AlertType.ERROR, "INVALID Name").show();
+            num =1;
+        }
+        String email = txtEmail.getText();
+        boolean isCustomerEmailValidated = Pattern.matches("[a-z].*(com|lk)", email);
+        if (!isCustomerEmailValidated) {
+            new Alert(Alert.AlertType.ERROR, "INVALID Email").show();
+            num =1;
+        }
+
+
+        String password = txtPassword.getText();
+        boolean isCustomerTelValidated = Pattern.matches("[0-9]{10}", password);
+        if (!isCustomerTelValidated) {
+             new Alert(Alert.AlertType.ERROR, "INVALID password").show();
+            num =1;
+        }
+
+        String admin_id = txtAdminId.getText();
+        boolean isAdminIdValidated = Pattern.matches("[A][0-9]{3,}", admin_id);
+        if (!isAdminIdValidated) {
+            new Alert(Alert.AlertType.ERROR, "INVALID Id").show();
+            num =1;
+        }
+        if(num==1){
+            num = 0;
+            return false;
+        }else {
+            num = 0;
+            return true;
+        }
+    }
+
     @FXML
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        long user_id = Long.parseLong(txtId.getText());
+        String user_id = txtId.getText();
         try {
             userBO.deleteUser(user_id);
             tblUser.refresh();
@@ -116,7 +173,7 @@ public class UserFormController {
             System.out.println(allUser);
 
             for (userDto c : allUser) {
-                items.add(new userDto(c.getId(), c.getName(), c.getEmail(),c.getPassword()));
+                items.add(new userDto(c.getId(), c.getName(), c.getEmail(),c.getPassword(),c.getAdmin_id()));
                 System.out.println(c.getPassword());
             }
         } catch (Exception e) {
@@ -126,13 +183,15 @@ public class UserFormController {
 
     @FXML
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        long id = Long.parseLong(txtId.getText());
+        String user_id = txtId.getText();
         String name= txtName.getText();
         String email=txtEmail.getText();
         String password=txtPassword.getText();
+        String admin_id = txtAdminId.getText();
+
 
         try {
-            userBO.updateUser(new userDto(id,name,email,password));
+            userBO.updateUser(new userDto(user_id,name,email,password,admin_id));
             loadAllUser();
             new Alert(Alert.AlertType.CONFIRMATION,"user Added Successful !", ButtonType.OK).show();
         } catch (Exception e) {

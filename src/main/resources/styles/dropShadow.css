@@ -1,0 +1,14 @@
+#blueSubPane{
+    -fx-background-color: #87CEEB;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,5), 50, 0, 4, 4);
+
+}
+
+#subBluePane{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 90, 0, 2, 2);
+}
+
+.btn{
+    -fx-background-color: #87CEEB;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 90, 0, 2, 2);
+}

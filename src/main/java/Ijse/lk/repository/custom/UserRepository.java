@@ -5,4 +5,5 @@ import Ijse.lk.entity.User;
 
 public interface UserRepository extends CrudRepository<User> {
 
+    User getUser(String userId);
 }

@@ -42,12 +42,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public boolean exist(Long id) throws Exception {
+    public boolean exist(String id) throws Exception {
         return false;
     }
 
     @Override
-    public boolean delete(Long id) throws Exception {
+    public boolean delete(String id) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction1 = session.beginTransaction();
         User user = session.get(User.class,id);
@@ -57,5 +57,15 @@ public class UserRepositoryImpl implements UserRepository {
         return true;
 
 
+    }
+
+    @Override
+    public User getUser(String userId) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.get(User.class, userId);
+        transaction.commit();
+        session.close();
+        return user;
     }
 }

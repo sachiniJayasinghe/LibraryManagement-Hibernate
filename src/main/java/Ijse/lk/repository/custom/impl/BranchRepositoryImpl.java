@@ -7,7 +7,9 @@ import Ijse.lk.entity.User;
 import Ijse.lk.repository.custom.BranchRepository;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BranchRepositoryImpl implements BranchRepository {
@@ -43,12 +45,12 @@ public class BranchRepositoryImpl implements BranchRepository {
     }
 
     @Override
-    public boolean exist(Long id) throws Exception {
+    public boolean exist(String id) throws Exception {
         return false;
     }
 
     @Override
-    public boolean delete(Long id) throws Exception {
+    public boolean delete(String id) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction1 = session.beginTransaction();
         Branch branch = session.get(Branch.class,id);
@@ -57,4 +59,31 @@ public class BranchRepositoryImpl implements BranchRepository {
         session.close();
         return true;
     }
-}
+
+
+    @Override
+    public Branch getBranch(String branchId) {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction1 = session.beginTransaction();
+        Branch branch = session.get(Branch.class,branchId);
+        System.out.println("branch :" + branch );
+        transaction1.commit();
+        session.close();
+        return branch;
+    }
+
+   @Override
+  public String getId(String branchName) {
+       Session session = SessionFactoryConfig.getInstance().getSession();
+       String sql = "FROM Branch";
+       Query query = session.createQuery(sql);
+       List<Branch> list = query.list();
+       for (Branch branch : list) {
+           if (branch.getBranch_name().equals(branchName)) {
+               return branch.getBranch_id();
+           }
+       }
+       return branchName;
+   }
+    }
+

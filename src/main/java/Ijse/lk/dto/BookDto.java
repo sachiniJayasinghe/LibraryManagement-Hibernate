@@ -3,7 +3,7 @@ package Ijse.lk.dto;
 import javax.persistence.Column;
 
 public class BookDto {
-    private Long book_id;
+    private String book_id;
 
     private String title;
 
@@ -11,25 +11,27 @@ public class BookDto {
 
     private String genre;
 
+    private String availability;
 
-    private Long availability;
+    private String branch_id;
 
     public BookDto() {
     }
 
-    public BookDto(Long book_id, String title, String author, String genre, Long availability) {
+    public BookDto(String book_id, String title, String author, String genre, String availability, String branch_id) {
         this.book_id = book_id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.availability = availability;
+        this.branch_id = branch_id;
     }
 
-    public Long getBook_id() {
+    public String getBook_id() {
         return book_id;
     }
 
-    public void setBook_id(Long book_id) {
+    public void setBook_id(String book_id) {
         this.book_id = book_id;
     }
 
@@ -57,22 +59,31 @@ public class BookDto {
         this.genre = genre;
     }
 
-    public Long getAvailability() {
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Long availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
+    }
+
+    public String getBranch_id() {
+        return branch_id;
+    }
+
+    public void setBranch_id(String branch_id) {
+        this.branch_id = branch_id;
     }
 
     @Override
     public String toString() {
         return "BookDto{" +
-                "book_id=" + book_id +
+                "book_id='" + book_id + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
-                ", availability=" + availability +
+                ", availability='" + availability + '\'' +
+                ", branch_id='" + branch_id + '\'' +
                 '}';
     }
 }

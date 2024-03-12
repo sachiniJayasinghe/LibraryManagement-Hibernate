@@ -10,10 +10,7 @@ import Ijse.lk.dto.userDto;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,9 +19,15 @@ import java.util.List;
 public class BranchFormController {
     @FXML
     private AnchorPane subsubPane;
+    @FXML
+    private TableColumn<?, ?> colAdminId;
 
     @FXML
     private TableView<BranchDto> tblBranch;
+
+    @FXML
+    private TextField txtAdminId;
+
 
     @FXML
     private TextField txtBranchId;
@@ -33,10 +36,14 @@ public class BranchFormController {
     private TextField txtBranchName;
     BranchBO branchBO= (BranchBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.Branch);
 
+
+
     public void initialize() {
-        tblBranch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("branch_id"));
-        tblBranch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("branch_name"));
-        loadAllBranch();
+//        tblBranch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("branch_id"));
+//        tblBranch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("branch_name"));
+//        tblBranch.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("admin_id"));
+//
+//        loadAllBranch();
 
 
     }
@@ -50,10 +57,14 @@ public class BranchFormController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        long branch_id = Long.parseLong(txtBranchId.getText());
+        String branch_id = txtBranchId.getText();
         String branch_name = txtBranchName.getText();
+        String admin_id = txtAdminId.getText();
+
+
+
         try {
-            branchBO.addBranch(new BranchDto(branch_id,branch_name));
+            branchBO.addBranch(new BranchDto(branch_id,branch_name,admin_id));
             loadAllBranch();
             new Alert(Alert.AlertType.CONFIRMATION,"Branch Added Successful !", ButtonType.OK).show();
         } catch (Exception e) {
@@ -67,10 +78,13 @@ public class BranchFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        long branch_id = Long.parseLong(txtBranchId.getText());
+        String branch_id = txtBranchId.getText();
         String branch_name = txtBranchName.getText();
+        String admin_id = txtAdminId.getText();
+
+
         try {
-            branchBO.updateBranch(new BranchDto(branch_id,branch_name));
+            branchBO.updateBranch(new BranchDto(branch_id,branch_name,admin_id));
             loadAllBranch();
             new Alert(Alert.AlertType.CONFIRMATION,"Branch Updated Successful !", ButtonType.OK).show();
         } catch (Exception e) {
@@ -91,7 +105,7 @@ public class BranchFormController {
             System.out.println(allBranch);
 
             for (BranchDto b : allBranch) {
-                items.add(new BranchDto(b.getBranch_id(), b.getBranch_name()));
+                items.add(new BranchDto(b.getBranch_id(), b.getBranch_name(), b.getAdmin_id()));
                 System.out.println(b.getBranch_name());
             }
         } catch (Exception e) {
@@ -101,7 +115,7 @@ public class BranchFormController {
     }
 
     public void btnDeletebOnAction(ActionEvent actionEvent) {
-        long branch_id = Long.parseLong(txtBranchId.getText());
+        String branch_id = txtBranchId.getText();
 
         try {
             branchBO.deleteBranch(branch_id);

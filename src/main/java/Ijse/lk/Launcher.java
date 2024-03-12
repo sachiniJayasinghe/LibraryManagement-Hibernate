@@ -1,10 +1,12 @@
 package Ijse.lk;
 
+import Ijse.lk.config.SessionFactoryConfig;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.hibernate.Session;
 
 
 public class Launcher extends Application {
@@ -14,14 +16,12 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent rootNode =  FXMLLoader.load(this.getClass().getResource("/view/branch_form.fxml"));
-
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Parent rootNode =  FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
         Scene scene = new Scene(rootNode);
-
-        stage.setTitle("Item Form");
+        stage.setTitle("Login Form");
         stage.centerOnScreen();
         stage.setScene(scene);
-
         stage.show();
     }
 }

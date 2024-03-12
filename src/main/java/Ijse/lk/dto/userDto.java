@@ -1,26 +1,32 @@
 package Ijse.lk.dto;
 
 public class userDto {
-    private Long id;
+    private String id;
     private String name;
     private String email;
     private String password;
+    private String admin_id;
 
-    public userDto(long user_id) {
+
+    public userDto(String user_id) {
     }
 
-    public userDto(Long id, String name, String email, String password) {
+    public userDto() {
+    }
+
+    public userDto(String id, String name, String email, String password, String admin_id) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.admin_id = admin_id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,13 +54,22 @@ public class userDto {
         this.password = password;
     }
 
+    public String getAdmin_id() {
+        return admin_id;
+    }
+
+    public void setAdmin_id(String admin_id) {
+        this.admin_id = admin_id;
+    }
+
     @Override
     public String toString() {
         return "userDto{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", admin_id='" + admin_id + '\'' +
                 '}';
     }
 }

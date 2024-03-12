@@ -23,20 +23,16 @@ public class BookFormController {
 
     @FXML
     private TextField txtAuthor1;
-
     @FXML
     private TextField txtAvailability1;
-
     @FXML
     private TextField txtBookId1;
-
     @FXML
     private TextField txtGenre1;
-
     @FXML
     private TextField txtTitle1;
-
-
+    @FXML
+    private TextField txtBranchId;
     @FXML
     private TableView<BookDto> tblBook;
 
@@ -50,6 +46,8 @@ public class BookFormController {
         tblBook.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author"));
         tblBook.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("genre"));
         tblBook.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("availability"));
+        tblBook.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("branch_id"));
+
 
         loadAllBook();
     }
@@ -66,13 +64,15 @@ public class BookFormController {
     }
 
     public void btnUpdateOnAction(javafx.event.ActionEvent actionEvent) {
-        long book_id = Long.parseLong(txtBookId1.getText());
+        String book_id =txtBookId1.getText();
         String title = txtTitle1.getText();
         String author=txtAuthor1.getText();
         String genre=txtGenre1.getText();
-        long availability= Long.parseLong(txtAvailability1.getText());
+        String availability= txtAvailability1.getText();
+        String branch_id = txtBranchId.getText();
+
         try {
-            bookBO.updateBook(new BookDto(book_id,title,author,genre,availability));
+            bookBO.updateBook(new BookDto(book_id,title,author,genre,availability,branch_id));
             loadAllBook();
             new Alert(Alert.AlertType.CONFIRMATION,"Book Updated Successful !", ButtonType.OK).show();
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class BookFormController {
     }
 
     public void btnDeleteOnAction(javafx.event.ActionEvent actionEvent) {
-        long book_id = Long.parseLong(txtBookId1.getText());
+        String book_id =txtBookId1.getText();
         try {
             bookBO.deleteBook(book_id);
             tblBook.refresh();
@@ -98,14 +98,16 @@ public class BookFormController {
     }
 
     public void btnSaveOnAction(javafx.event.ActionEvent actionEvent) {
-        long book_id = Long.parseLong(txtBookId1.getText());
+        String book_id =txtBookId1.getText();
         String title = txtTitle1.getText();
         String author=txtAuthor1.getText();
         String genre=txtGenre1.getText();
-        long availability= Long.parseLong(txtAvailability1.getText());
+        String availability= txtAvailability1.getText();
+        String branch_id = txtBranchId.getText();
+
 
         try {
-            bookBO.addBook(new BookDto(book_id,title,author,genre,availability));
+            bookBO.addBook(new BookDto(book_id,title,author,genre,availability,branch_id));
             loadAllBook();
             new Alert(Alert.AlertType.CONFIRMATION,"Book Added Successful !", ButtonType.OK).show();
         } catch (Exception e) {
@@ -122,11 +124,13 @@ public class BookFormController {
             System.out.println(allBook);
 
             for (BookDto b : allBook) {
-                items.add(new BookDto(b.getBook_id(), b.getTitle(), b.getAuthor(), b.getGenre(), b.getAvailability()));
+                items.add(new BookDto(b.getBook_id(), b.getTitle(), b.getAuthor(), b.getGenre(), b.getAvailability(),b.getBranch_id()));
                 System.out.println(b.getAvailability());
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
     }
+
 }

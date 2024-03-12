@@ -1,8 +1,6 @@
 package Ijse.lk.config;
 
-import Ijse.lk.entity.Book;
-import Ijse.lk.entity.Branch;
-import Ijse.lk.entity.User;
+import Ijse.lk.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -26,7 +24,9 @@ public class SessionFactoryConfig {
         configuration
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Book.class)
-                .addAnnotatedClass(Branch.class);
+                .addAnnotatedClass(Branch.class)
+                .addAnnotatedClass(Admin.class)
+                .addAnnotatedClass(BorrowingBooksDetail.class);
         sessionFactory=configuration.setProperties(properties).buildSessionFactory();
     }
 
