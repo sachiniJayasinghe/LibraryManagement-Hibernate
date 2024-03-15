@@ -13,27 +13,27 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="803.0" prefWidth="884.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.UserFormController">
+<AnchorPane prefHeight="682.0" prefWidth="750.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.UserFormController">
     <children>
-      <ImageView fitHeight="803.0" fitWidth="899.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="690.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/hero.jpg" />
          </image></ImageView>
-        <AnchorPane fx:id="mainSubPane" layoutX="50.0" layoutY="40.0" prefHeight="614.0" prefWidth="800.0" stylesheets="@../styles/main_form.css">
+        <AnchorPane fx:id="mainSubPane" layoutX="47.0" layoutY="39.0" prefHeight="614.0" prefWidth="664.0" stylesheets="@../styles/main_form.css">
             <children>
                 <TextField fx:id="txtEmail" layoutX="83.0" layoutY="169.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-                <TextField fx:id="txtName" layoutX="515.0" layoutY="106.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-                <Label fx:id="userPassword" layoutX="520.0" layoutY="139.0" prefHeight="32.0" prefWidth="192.0" text="User Password :" textFill="WHITE">
+                <TextField fx:id="txtName" layoutX="384.0" layoutY="112.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+                <Label fx:id="userPassword" layoutX="389.0" layoutY="145.0" prefHeight="32.0" prefWidth="192.0" text="User Password :" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold Italic" size="15.0" />
                     </font>
                 </Label>
-                <Label fx:id="userName" layoutX="518.0" layoutY="79.0" prefHeight="32.0" prefWidth="192.0" text="User Name :" textFill="WHITE">
+                <Label fx:id="userName" layoutX="387.0" layoutY="85.0" prefHeight="32.0" prefWidth="192.0" text="User Name :" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold Italic" size="15.0" />
                     </font>
                 </Label>
-                <Label layoutX="327.0" layoutY="18.0" prefHeight="43.0" prefWidth="353.0" text="User Manage" textFill="WHITE">
+                <Label layoutX="267.0" layoutY="18.0" prefHeight="43.0" prefWidth="149.0" text="User Manage" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
@@ -56,8 +56,8 @@
                     </font>
                 </Label>
                 <TextField fx:id="txtId" layoutX="80.0" layoutY="110.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-                <TextField fx:id="txtPassword" layoutX="517.0" layoutY="166.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-                <JFXButton fx:id="btnBack" layoutX="713.0" layoutY="566.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Back">
+                <TextField fx:id="txtPassword" layoutX="386.0" layoutY="172.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+                <JFXButton fx:id="btnBack" layoutX="573.0" layoutY="566.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Back">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -65,7 +65,7 @@
                         <Font size="12.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="645.0" layoutY="270.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Clear" textFill="WHITE">
+                <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="514.0" layoutY="280.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Clear" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -73,7 +73,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="577.0" layoutY="270.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Update" textFill="WHITE">
+                <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="446.0" layoutY="280.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Update" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -81,7 +81,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="509.0" layoutY="272.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Delete" textFill="WHITE">
+                <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="378.0" layoutY="280.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Delete" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -89,7 +89,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="433.0" layoutY="273.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Save" textFill="WHITE">
+                <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="302.0" layoutY="280.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Save" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="10.0" />
                     </font>
@@ -97,13 +97,13 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <TableView fx:id="tblUser" layoutX="59.0" layoutY="328.0" prefHeight="217.0" prefWidth="680.0">
+                <TableView fx:id="tblUser" layoutX="75.0" layoutY="328.0" prefHeight="217.0" prefWidth="507.0">
                     <columns>
-                        <TableColumn fx:id="colId" prefWidth="118.33334350585938" text="Id" />
-                        <TableColumn fx:id="colName" prefWidth="104.0" text="Name" />
-                        <TableColumn fx:id="colEmail" prefWidth="181.0" text="Email" />
-                        <TableColumn fx:id="colPassword" prefWidth="138.0" text="Password" />
-                  <TableColumn fx:id="colPassword1" prefWidth="135.0" text="Admin Id" />
+                        <TableColumn fx:id="colId" prefWidth="58.9278564453125" text="Id" />
+                        <TableColumn fx:id="colName" prefWidth="87.8031005859375" text="Name" />
+                        <TableColumn fx:id="colEmail" prefWidth="127.27255249023438" text="Email" />
+                        <TableColumn fx:id="colPassword" prefWidth="124.41864013671875" text="Password" />
+                  <TableColumn fx:id="colPassword1" prefWidth="107.71060180664062" text="Admin Id" />
                     </columns>
                 </TableView>
             <TextField fx:id="txtAdminId" layoutX="83.0" layoutY="234.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />

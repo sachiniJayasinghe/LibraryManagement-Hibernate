@@ -13,16 +13,16 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="803.0" prefWidth="884.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BookFormController">
+<AnchorPane prefHeight="680.0" prefWidth="750.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BookFormController">
 <children>
-      <ImageView fitHeight="807.0" fitWidth="908.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="690.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/hero.jpg" />
          </image>
       </ImageView>
-    <AnchorPane fx:id="mainSubPane" layoutX="50.0" layoutY="40.0" prefHeight="614.0" prefWidth="800.0" stylesheets="@../styles/main_form.css">
+    <AnchorPane fx:id="mainSubPane" layoutX="40.0" layoutY="40.0" prefHeight="602.0" prefWidth="667.0" stylesheets="@../styles/main_form.css">
         <children>
-            <Label layoutX="327.0" layoutY="18.0" prefHeight="43.0" prefWidth="353.0" text="Book Manage" textFill="WHITE">
+            <Label layoutX="257.0" layoutY="18.0" prefHeight="43.0" prefWidth="156.0" text="Book Manage" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="24.0" />
                 </font>
@@ -34,7 +34,7 @@
                     </DropShadow>
                 </effect>
             </Label>
-            <JFXButton fx:id="btnBack" layoutX="713.0" layoutY="566.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Back">
+            <JFXButton fx:id="btnBack" layoutX="552.0" layoutY="556.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Back">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -42,7 +42,7 @@
                     <Font size="12.0" />
                 </font>
             </JFXButton>
-            <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="645.0" layoutY="284.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Clear" textFill="WHITE">
+            <JFXButton fx:id="btnClear" buttonType="RAISED" contentDisplay="RIGHT" layoutX="505.0" layoutY="284.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Clear" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="10.0" />
                 </font>
@@ -50,7 +50,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="576.0" layoutY="284.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Update" textFill="WHITE">
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" contentDisplay="RIGHT" layoutX="436.0" layoutY="284.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Update" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="10.0" />
                 </font>
@@ -58,7 +58,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="506.0" layoutY="284.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Delete" textFill="WHITE">
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" contentDisplay="RIGHT" layoutX="366.0" layoutY="284.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Delete" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="10.0" />
                 </font>
@@ -66,7 +66,7 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="433.0" layoutY="285.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Save" textFill="WHITE">
+            <JFXButton fx:id="btnSave" contentDisplay="RIGHT" layoutX="293.0" layoutY="285.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="60.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="Save" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="10.0" />
                 </font>
@@ -74,14 +74,14 @@
                     <Cursor fx:constant="HAND" />
                 </cursor>
             </JFXButton>
-            <TableView fx:id="tblBook" layoutX="49.0" layoutY="344.0" prefHeight="217.0" prefWidth="702.0">
+            <TableView fx:id="tblBook" layoutX="37.0" layoutY="324.0" prefHeight="217.0" prefWidth="555.0">
                 <columns>
-                    <TableColumn fx:id="colId" prefWidth="103.0" text="Id" />
-                    <TableColumn fx:id="colTitle" prefWidth="135.0" text="Title" />
-                    <TableColumn fx:id="colAuthor" prefWidth="129.0" text="Author" />
-                    <TableColumn fx:id="colGenre" prefWidth="97.0" text="Genre" />
-                  <TableColumn fx:id="colAvailability" prefWidth="118.0" text="Availability" />
-                  <TableColumn fx:id="colBranchId" prefWidth="115.0" text="Branch Id" />
+                    <TableColumn fx:id="colId" prefWidth="55.894935607910156" text="Id" />
+                    <TableColumn fx:id="colTitle" prefWidth="88.10505676269531" text="Title" />
+                    <TableColumn fx:id="colAuthor" prefWidth="89.05339050292969" text="Author" />
+                    <TableColumn fx:id="colGenre" prefWidth="105.79022216796875" text="Genre" />
+                  <TableColumn fx:id="colAvailability" prefWidth="93.55352783203125" text="Availability" />
+                  <TableColumn fx:id="colBranchId" prefWidth="120.1060791015625" text="Branch Id" />
                 </columns>
             </TableView>
             <TextField fx:id="txtBookId1" layoutX="62.0" layoutY="96.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
@@ -90,8 +90,8 @@
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTitle1" layoutX="469.0" layoutY="94.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-            <Label fx:id="userId1" layoutX="475.0" layoutY="70.0" prefHeight="32.0" prefWidth="161.0" text="Book Title :" textFill="WHITE">
+            <TextField fx:id="txtTitle1" layoutX="329.0" layoutY="94.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+            <Label fx:id="userId1" layoutX="335.0" layoutY="70.0" prefHeight="32.0" prefWidth="161.0" text="Book Title :" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>
@@ -102,8 +102,8 @@
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtGenre1" layoutX="469.0" layoutY="158.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-            <Label fx:id="userId21" layoutX="475.0" layoutY="134.0" prefHeight="32.0" prefWidth="161.0" text="Book Genre  :" textFill="WHITE">
+            <TextField fx:id="txtGenre1" layoutX="329.0" layoutY="158.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+            <Label fx:id="userId21" layoutX="335.0" layoutY="134.0" prefHeight="32.0" prefWidth="161.0" text="Book Genre  :" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>
@@ -114,8 +114,8 @@
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="txtBranchId" layoutX="470.0" layoutY="225.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
-            <Label fx:id="userId211" layoutX="475.0" layoutY="197.0" prefHeight="32.0" prefWidth="161.0" text="Branch Id  :" textFill="WHITE">
+            <TextField fx:id="txtBranchId" layoutX="330.0" layoutY="225.0" onAction="#txtSearchOnAction" prefHeight="33.0" prefWidth="230.0" styleClass="custom-text-field" stylesheets="@../styles/space.css" />
+            <Label fx:id="userId211" layoutX="335.0" layoutY="197.0" prefHeight="32.0" prefWidth="161.0" text="Branch Id  :" textFill="WHITE">
                <font>
                   <Font name="Arial Bold Italic" size="15.0" />
                </font>

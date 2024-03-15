@@ -13,54 +13,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" prefHeight="803.0" prefWidth="883.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BorrowingDetailFormController">
+<AnchorPane fx:id="mainPane" prefHeight="680.0" prefWidth="750.0" styleClass="mainPaneBackground" stylesheets="@../styles/space.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ijse.lk.controller.BorrowingDetailFormController">
     <children>
-      <ImageView fitHeight="806.0" fitWidth="890.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="690.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/hero.jpg" />
          </image>
       </ImageView>
-        <AnchorPane fx:id="mainSubPane" layoutX="50.0" layoutY="61.0" prefHeight="615.0" prefWidth="800.0">
+        <AnchorPane fx:id="mainSubPane" layoutX="40.0" layoutY="61.0" prefHeight="566.0" prefWidth="662.0">
             <children>
                 <JFXComboBox fx:id="cmbBookName" focusColor="#eeeeee" labelFloat="true" layoutX="73.0" layoutY="95.0" onAction="#cmbBookNameOnAction" prefHeight="26.0" prefWidth="153.0" promptText="Book Name" unFocusColor="WHITE" />
-                <Label layoutX="354.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" text="Borrowing">
+                <Label layoutX="264.0" layoutY="22.0" prefHeight="23.0" prefWidth="106.0" text="Borrowing">
                     <font>
                         <Font name="Arial Bold Italic" size="20.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnPay" layoutX="666.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnPayOnAction" prefHeight="26.0" prefWidth="81.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Pay" />
-                <Button fx:id="btnViewBill" layoutX="567.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnViewBillOnAction" prefHeight="26.0" prefWidth="83.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="view Bill" textFill="WHITE" />
-                <Label layoutX="33.0" layoutY="438.0" prefHeight="23.0" prefWidth="111.0" text="Total Rs :">
-                    <font>
-                        <Font name="Arial Bold Italic" size="20.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="txtTotal" layoutX="131.0" layoutY="430.0" prefHeight="45.0" prefWidth="144.0" styleClass="custom-text-field" stylesheets="@../styles/space.css">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </TextField>
-                <TableView fx:id="tblBorrow" layoutX="85.0" layoutY="242.0" prefHeight="160.0" prefWidth="600.0">
+                <Button fx:id="btnPay" layoutX="516.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnPayOnAction" prefHeight="26.0" prefWidth="81.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Pay" />
+                <Button fx:id="btnViewBill" layoutX="417.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnViewBillOnAction" prefHeight="26.0" prefWidth="83.0" styleClass="subPane-Buttons1" stylesheets="@../styles/space.css" text="view Bill" textFill="WHITE" />
+                <TableView fx:id="tblBorrow" layoutX="55.0" layoutY="242.0" prefHeight="160.0" prefWidth="548.0">
                     <columns>
-                        <TableColumn fx:id="colBorderId" prefWidth="102.39144897460938" text="Bor_id" />
-                        <TableColumn fx:id="colDate" prefWidth="113.52049255371094" text="Date" />
-                        <TableColumn fx:id="colReturnDate" prefWidth="98.83285522460938" text="return Date" />
-                  <TableColumn fx:id="colCost" prefWidth="105.4110107421875" text="Cost" />
-                  <TableColumn fx:id="colUserId" prefWidth="90.8160400390625" text="user_id" />
-                  <TableColumn fx:id="colBookId" prefWidth="86.71099853515625" text="Book_id" />
+                        <TableColumn fx:id="colBorderId" prefWidth="67.434326171875" text="Bor_id" />
+                        <TableColumn fx:id="colDate" prefWidth="102.74571228027344" text="Date" />
+                        <TableColumn fx:id="colReturnDate" prefWidth="101.84320068359375" text="return Date" />
+                  <TableColumn fx:id="colCost" prefWidth="96.75204467773438" text="Cost" />
+                  <TableColumn fx:id="colUserId" prefWidth="83.45962524414062" text="user_id" />
+                  <TableColumn fx:id="colBookId" prefWidth="93.953369140625" text="Book_id" />
                     </columns>
                 </TableView>
-            <Button fx:id="btnAdd" layoutX="648.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="81.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Add +" />
-            <DatePicker fx:id="returnDate" layoutX="163.0" layoutY="152.0" />
-            <Label layoutX="83.0" layoutY="157.0" text="return Date :" />
-            <Label layoutX="496.0" layoutY="99.0" text="User ID :" />
-            <TextField fx:id="txtUsr" layoutX="561.0" layoutY="86.0" prefHeight="46.0" prefWidth="134.0" styleClass="custom-text-field" stylesheets="@../styles/space.css">
+            <Button fx:id="btnAdd" layoutX="518.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="81.0" styleClass="subPane-Buttons2" stylesheets="@../styles/space.css" text="Add +" />
+            <DatePicker fx:id="returnDate" layoutX="143.0" layoutY="152.0" prefHeight="26.0" prefWidth="154.0" />
+            <Label layoutX="63.0" layoutY="157.0" text="return Date :" />
+            <Label layoutX="366.0" layoutY="99.0" text="User ID :" />
+            <TextField fx:id="txtUsr" layoutX="431.0" layoutY="86.0" prefHeight="46.0" prefWidth="134.0" styleClass="custom-text-field" stylesheets="@../styles/space.css">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <Label layoutX="483.0" layoutY="144.0" text="Borrow ID :" />
-            <TextField fx:id="txtBrwID" layoutX="561.0" layoutY="140.0" prefHeight="26.0" prefWidth="135.0" />
+            <Label layoutX="353.0" layoutY="144.0" text="Borrow ID :" />
+            <TextField fx:id="txtBrwID" layoutX="431.0" layoutY="140.0" prefHeight="26.0" prefWidth="135.0" />
             </children>
          <stylesheets>
             <URL value="@../styles/space.css" />

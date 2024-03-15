@@ -17,10 +17,10 @@ public class AdminBOImpl implements AdminBO {
 
     @Override
     public List<AdminDto> getAllAdmin() throws Exception {
-        List<AdminDto> allAdmin = new ArrayList<>();
+        List<AdminDto> allAdmin= new ArrayList<>();
         List<Admin> all = adminRepository.getAll();
-        for (Admin a : all) {
-            allAdmin.add(new AdminDto(a.getAdmin_id(), a.getAdmin_name()));
+        for (Admin a: all) {
+            allAdmin.add(new AdminDto(a.getAdmin_id(),a.getAdmin_name()));
         }
         return allAdmin;
     }

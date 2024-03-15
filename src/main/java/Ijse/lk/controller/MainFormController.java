@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -24,7 +25,13 @@ public class MainFormController {
     private Button btnBrowing;
 
     @FXML
+    private AnchorPane mainRoot;
+
+    @FXML
     private Button btnDashBoard;
+
+    @FXML
+    private Button btnSettings;
 
     @FXML
     private Button btnTransaction;
@@ -39,7 +46,40 @@ public class MainFormController {
     private Pane mainSubPane;
 
     @FXML
+    private ImageView imgBook;
+
+    @FXML
+    private ImageView imgBranch;
+
+    @FXML
+    private Button btnLogOut;
+
+    @FXML
+    private ImageView imgLogOut;
+
+    @FXML
+    private ImageView imgTransaction;
+
+    @FXML
+    private ImageView imgUser;
+
+    @FXML
     public void initialize() throws IOException {
+
+        if (LoginFormController.role.equals("User")) {
+            btnUsr.setVisible(false);
+            btnBranch.setVisible(false);
+            btnBook.setVisible(false);
+            imgBook.setVisible(false);
+            imgBranch.setVisible(false);
+            imgUser.setVisible(false);
+            btnTransaction.setVisible(false);
+            imgTransaction.setVisible(false);
+            btnSettings.setVisible(false);
+            btnLogOut.setLayoutY(500);
+            imgLogOut.setLayoutY(500);
+        }
+
         setUI("dash_board.fxml", btnDashBoard);
         btnBook.setStyle("-fx-background-color: #87CEEB");
         btnBranch.setStyle("-fx-background-color: #87CEEB");
@@ -142,5 +182,11 @@ public class MainFormController {
 
     public void btnSettingsOnAction(ActionEvent actionEvent) throws IOException {
         setUI("admin_form.fxml", btnUsr);
+    }
+
+    @FXML
+    void btnLogOutOnAction(ActionEvent event) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
+        mainRoot.getChildren().setAll(rootNode);
     }
 }

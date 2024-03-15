@@ -24,30 +24,22 @@ public class BorrowingBooksDetail {
     private double cost;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User users;
     @ManyToOne
-    @JoinColumn(name = "book_id", referencedColumnName = "book_id", insertable = false, updatable = false)
+    @JoinColumn(name = "book_id", referencedColumnName = "book_id")
     private Book book;
 
     public BorrowingBooksDetail() {
     }
 
-    public BorrowingBooksDetail(String borrowId, LocalDate borrowDate, LocalDate returnDate, User users, Book book) {
+    public BorrowingBooksDetail(String borrowId, LocalDate borrowDate, LocalDate returnDate, double cost, User users, Book book) {
         this.borrowId = borrowId;
         BorrowDate = borrowDate;
         this.returnDate = returnDate;
+        this.cost = cost;
         this.users = users;
         this.book = book;
-    }
-
-    public BorrowingBooksDetail(String borrowId, Book book, User user, LocalDate borrowDate, LocalDate returnDate, Double cost) {
-        this.borrowId = borrowId;
-        this.BorrowDate = borrowDate;
-        this.returnDate = returnDate;
-        this.users = user;
-        this.book = book;
-        this.cost = cost;
     }
 
     public String getBorrowId() {
@@ -98,5 +90,13 @@ public class BorrowingBooksDetail {
         this.book = book;
     }
 
-
+    @Override
+    public String toString() {
+        return "BorrowingBooksDetail{" +
+                "borrowId='" + borrowId + '\'' +
+                ", BorrowDate=" + BorrowDate +
+                ", returnDate=" + returnDate +
+                ", cost=" + cost +
+                '}';
+    }
 }

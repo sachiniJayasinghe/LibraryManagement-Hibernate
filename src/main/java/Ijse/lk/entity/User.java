@@ -23,7 +23,7 @@ public class User {
     @JoinColumn(name = "admin_id", referencedColumnName = "admin_id")
     private Admin admin;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "users")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "users")
     private List<BorrowingBooksDetail> borrowingBooksDetails = new ArrayList<>();
 
     public User() {
@@ -102,7 +102,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", admin=" + admin +
                 ", borrowingBooksDetails=" + borrowingBooksDetails +
                 '}';
     }

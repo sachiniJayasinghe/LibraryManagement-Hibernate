@@ -10,19 +10,14 @@ public class Admin {
     @Id
     @Column(name = "admin_id",length = 30)
     private String admin_id;
-
     @Column(name = "admin_name")
     private String admin_name;
-
     @Column(name = "admin_password")
     private String admin_password;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "admin")
     private List<User> users = new ArrayList<>();
-
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "admin")
     private List<Branch> branches = new ArrayList<>();
-
     public Admin() {
     }
     public Admin(String admin_id, String admin_name, String admin_password, List<User> users, List<Branch> branches) {

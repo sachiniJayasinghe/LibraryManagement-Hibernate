@@ -3,13 +3,18 @@ package Ijse.lk.controller;
 import Ijse.lk.bo.BOFactory;
 import Ijse.lk.bo.custom.BorrowingBO;
 import Ijse.lk.dto.BookDto;
+import Ijse.lk.dto.BorrowingBooksDetailDto;
 import Ijse.lk.dto.tm.BorrowingBooksDetailsTM;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -72,6 +77,18 @@ public class BorrowingDetailFormController {
 
     public void initialize() throws Exception {
 
+        tblBorrow.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("borrowId"));
+        tblBorrow.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("BorrowDate"));
+        tblBorrow.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        tblBorrow.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("cost"));
+        tblBorrow.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        tblBorrow.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("userId"));
+
+        loadAllBorrow();
+
+
+
+
         returnDate.setValue(LocalDate.now().plusDays(7));
 
         String id = borrowingBO.getNewBorrowingId();
@@ -80,24 +97,56 @@ public class BorrowingDetailFormController {
         for (BookDto b: allBooks) {
 
             if (b.getAvailability().equals("Available") || b.getAvailability().equals("available")){
-                cmbBookName.getItems().add(b.getTitle());
+                cmbBookName.getItems().add(b.getBook_id());
             }
         }
         cmbBookName.getItems().addAll();
     }
+
+
+    private void loadAllBorrow() {
+
+        ObservableList<BorrowingBooksDetailsTM> obList = FXCollections.observableArrayList();
+
+        try {
+           List<BorrowingBooksDetailDto> dtoList = borrowingBO.getAllBorrowing();
+
+           for(BorrowingBooksDetailDto dto : dtoList) {
+                obList.add(
+                        new BorrowingBooksDetailsTM(
+                                dto.getBorrowId(),
+                                dto.getBorrowDate(),
+                                dto.getReturnDate(),
+                                dto.getCost(),
+                                dto.getId(),
+                                dto.getBookId()
+
+                        )
+                );
+            }
+
+            tblBorrow.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws Exception {
         String borrowId = borrowingBO.getNewBorrowingId();
         String bookName = cmbBookName.getValue();
         String userId = txtUsr.getText();
-        String bookId = borrowingBO.searchBookForName(bookName);
+        String bookId = cmbBookName.getValue();
         LocalDate date = LocalDate.now();
         LocalDate returnDate = this.returnDate.getValue();
         Double cost = 50.0;
 
-
-    boolean isAdded = borrowingBO.addBorrowing(borrowId, bookId, userId, date, returnDate,cost);
+        boolean isAdded = borrowingBO.addBorrowing(borrowId, bookId, userId, date, returnDate,cost);
         if (isAdded){
         new Alert(Alert.AlertType.CONFIRMATION, "Added", ButtonType.OK).show();
             }else {

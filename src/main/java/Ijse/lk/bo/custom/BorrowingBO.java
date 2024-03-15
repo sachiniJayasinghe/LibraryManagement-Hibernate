@@ -6,12 +6,6 @@ import Ijse.lk.dto.BorrowingBooksDetailDto;
 
 import java.time.LocalDate;
 import java.util.List;
-
-/**
- * @author : L.H
- * @date : 2024-03-11
- * @since : 0.1.0
- **/
 public interface BorrowingBO extends SuperBO {
     public boolean addBorrowing(String borrowId, String bookId, String userId, LocalDate borrowDate, LocalDate returnDate, Double cost) throws Exception;
     public boolean deleteBorrowing(String id) throws Exception;

@@ -128,7 +128,7 @@ public class UserFormController {
 
 
         String password = txtPassword.getText();
-        boolean isCustomerTelValidated = Pattern.matches("[0-9]{10}", password);
+        boolean isCustomerTelValidated = Pattern.matches(".{8,}", password);
         if (!isCustomerTelValidated) {
              new Alert(Alert.AlertType.ERROR, "INVALID password").show();
             num =1;

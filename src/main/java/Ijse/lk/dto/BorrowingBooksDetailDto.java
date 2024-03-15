@@ -1,40 +1,30 @@
 package Ijse.lk.dto;
 
-import Ijse.lk.embedded.BorrowingBooksDetailPK;
 
-
-import javax.persistence.Column;
 import java.time.LocalDate;
 
 public class BorrowingBooksDetailDto {
     private String borrowId;
+    private LocalDate BorrowDate;
+
+    private LocalDate returnDate;
+    private double cost;
+    private String id;
+
 
     private String bookId;
 
-    private String userId;
-    private LocalDate BorrowDate ;
 
-    private LocalDate returnDate ;
-
-    private double cost;
-    public BorrowingBooksDetailDto() {
-    }
-
-    public BorrowingBooksDetailDto(String borrowId, String bookId, String userId, LocalDate borrowDate, LocalDate returnDate) {
+    public BorrowingBooksDetailDto(String borrowId, LocalDate borrowDate, LocalDate returnDate, double cost, String id, String bookId) {
         this.borrowId = borrowId;
-        this.bookId = bookId;
-        this.userId = userId;
-        BorrowDate = borrowDate;
-        this.returnDate = returnDate;
-    }
-
-    public BorrowingBooksDetailDto(String borrowId, String bookId, String userId, LocalDate borrowDate, LocalDate returnDate, Double cost) {
-        this.borrowId = borrowId;
-        this.bookId = bookId;
-        this.userId = userId;
         BorrowDate = borrowDate;
         this.returnDate = returnDate;
         this.cost = cost;
+        this.id = id;
+        this.bookId = bookId;
+    }
+
+    public BorrowingBooksDetailDto() {
     }
 
     public String getBorrowId() {
@@ -53,12 +43,12 @@ public class BorrowingBooksDetailDto {
         this.bookId = bookId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public LocalDate getBorrowDate() {
@@ -77,15 +67,23 @@ public class BorrowingBooksDetailDto {
         this.returnDate = returnDate;
     }
 
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return "BorrowingBooksDetailDto{" +
                 "borrowId='" + borrowId + '\'' +
                 ", bookId='" + bookId + '\'' +
-                ", userId='" + userId + '\'' +
+                ", id='" + id + '\'' +
                 ", BorrowDate=" + BorrowDate +
                 ", returnDate=" + returnDate +
+                ", cost=" + cost +
                 '}';
     }
 }
-

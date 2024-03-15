@@ -31,15 +31,33 @@ public class BorrowingBOImpl implements BorrowingBO {
         Book book = bookRepository.getBook(bookId);
         User user = userRepository.getUser(userId);
 
-        if (borrowingRepository.add(new BorrowingBooksDetail(borrowId,book,user,borrowDate,returnDate,cost))) {
+        System.out.println(user.getId());
+        System.out.println(book.getBook_id());
 
-            Branch branch = branchRepository.getBranch(book.getBranch().getBranch_id());
-            book.setAvailability("unAvailable");
-            return bookRepository.update(new Book(book.getBook_id(),book.getTitle(),book.getAuthor(),book.getGenre(),book.getAvailability(),branch));
+        BorrowingBooksDetail borrowingBooksDetail = new BorrowingBooksDetail(borrowId, borrowDate, returnDate, cost, user, book);
 
-        } else {
-            return false;
+        System.out.println(borrowingBooksDetail.getBook().getBook_id());
+        System.out.println(borrowingBooksDetail.getUsers().getId());
+        System.out.println(user);
+
+        boolean added = borrowingRepository.add(new BorrowingBooksDetail(borrowId, borrowDate, returnDate, cost, user, book));
+
+        if (added) {
+            book.setAvailability("unavailable");
+            return bookRepository.update(book);
         }
+
+        return false;
+
+
+//        if (borrowingRepository.add(new BorrowingBooksDetail(borrowId,book,user,borrowDate,returnDate,cost))) {
+//            Branch branch = branchRepository.getBranch(book.getBranch().getBranch_id());
+//            System.out.println(book.getBook_id());
+//            book.setAvailability("unAvailable");
+//            return bookRepository.update(new Book(book.getBook_id(),book.getTitle(),book.getAuthor(),book.getGenre(),book.getAvailability(),branch));
+//        } else {
+//            return false;
+//        }
     }
 
     @Override
@@ -59,7 +77,23 @@ public class BorrowingBOImpl implements BorrowingBO {
 
     @Override
     public List<BorrowingBooksDetailDto> getAllBorrowing() throws Exception {
-        return null;
+        List<BorrowingBooksDetailDto> allBook= new ArrayList<>();
+        List<BorrowingBooksDetail> all = borrowingRepository.getAll();
+        for (BorrowingBooksDetail b: all) {
+
+            System.out.println(b.getCost());
+            allBook.add(new BorrowingBooksDetailDto(
+                    b.getBorrowId(),
+                    b.getBorrowDate(),
+                    b.getReturnDate(),
+                    b.getCost(),
+                    b.getUsers().getId(),
+                    b.getBook().getBook_id()
+                    ));
+
+
+        }
+        return allBook;
     }
 
     @Override

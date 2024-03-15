@@ -102,12 +102,11 @@ public class BookRepositoryImpl  implements BookRepository {
 
     @Override
     public Book getBook(String bookId) {
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        Book book = session.get(Book.class, bookId);
-        transaction.commit();
-        session.close();
 
+        System.out.println(bookId);
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Book book = session.get(Book.class, bookId);
+        session.close();
         return book;
     }
 

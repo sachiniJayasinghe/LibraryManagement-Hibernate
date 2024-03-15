@@ -29,7 +29,7 @@ public class Book {
     private Branch branch;
 
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "book")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "book")
     private List<BorrowingBooksDetail> borrowingBooksDetails = new ArrayList<>();
 
     public Book(String book_id, String title, String author, String genre, String availability, Branch branch, List<BorrowingBooksDetail> borrowingBooksDetails) {

@@ -2,30 +2,27 @@ package Ijse.lk.dto.tm;
 
 import java.time.LocalDate;
 
-/**
- * @author : L.H
- * @date : 2024-03-11
- * @since : 0.1.0
- **/
 public class BorrowingBooksDetailsTM {
     private String borrowId;
 
-    private String bookId;
-
-    private String userId;
     private LocalDate BorrowDate ;
 
     private LocalDate returnDate ;
+    private double cost;
+    private String bookId;
 
-    public BorrowingBooksDetailsTM() {
-    }
+    private String userId;
 
-    public BorrowingBooksDetailsTM(String borrowId, String bookId, String userId, LocalDate borrowDate, LocalDate returnDate) {
+    public BorrowingBooksDetailsTM(String borrowId, LocalDate borrowDate, LocalDate returnDate, double cost, String userId, String bookId) {
         this.borrowId = borrowId;
+        this.BorrowDate = borrowDate;
+        this.returnDate = returnDate;
+        this.cost =cost;
         this.bookId = bookId;
         this.userId = userId;
-        BorrowDate = borrowDate;
-        this.returnDate = returnDate;
+    }
+
+    public BorrowingBooksDetailsTM() {
     }
 
     public String getBorrowId() {
@@ -68,14 +65,21 @@ public class BorrowingBooksDetailsTM {
         this.returnDate = returnDate;
     }
 
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return "BorrowingBooksDetailsTM{" +
                 "borrowId='" + borrowId + '\'' +
-                ", bookId='" + bookId + '\'' +
-                ", userId='" + userId + '\'' +
                 ", BorrowDate=" + BorrowDate +
                 ", returnDate=" + returnDate +
+                ", cost=" + cost +
                 '}';
     }
 }

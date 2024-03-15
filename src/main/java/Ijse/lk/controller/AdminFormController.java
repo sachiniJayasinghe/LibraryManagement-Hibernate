@@ -111,9 +111,9 @@ public class AdminFormController {
         String admin_id = txtAdminId.getText();
         String admin_name = txtAdminName.getText();
         try {
-            adminBO.addAdmin(new AdminDto(admin_id, admin_name));
+            adminBO.addAdmin(new AdminDto(admin_id,admin_name));
             loadAllAdmin();
-            new Alert(Alert.AlertType.CONFIRMATION, "Admin Added Successful !", ButtonType.OK).show();
+            new Alert(Alert.AlertType.CONFIRMATION,"Admin Added Successful !", ButtonType.OK).show();
         } catch (Exception e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Admin Added Not Successful!", ButtonType.OK).show();
